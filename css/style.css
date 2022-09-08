@@ -1,0 +1,140 @@
+:root {
+    --primaryColor: #161616;
+    --secondaryColor: #E0E0E0;
+    --bradius: 1em;
+    --bradius-width: 0.3em;
+    --bradius-top-left: 0em;
+    --bradius-top-right: 0em;
+    --bradius-bottom-right: 0em;
+    --bradius-bottom-left: 0em;
+}
+
+
+/* FONTS */
+
+@font-face {
+    font-family: 'JetBrains';
+    src: url('../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Raptor';
+    src: url('../assets/fonts/Raptor.woff') format('woff');
+}
+
+
+/* BODY */
+
+body {
+    background-color: var(--primaryColor);
+    width: calc(100vw - 10vh);
+    height: 90vh;
+    margin: 0;
+    padding: 5vh;
+}
+
+
+/* HEADER */
+
+header {
+    margin: 0 auto;
+    width: 90%;
+}
+
+header .content {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider {
+    font-family: "Raptor";
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    width: 100%;
+}
+
+.slider span {
+    position: absolute;
+    width: max-content;
+    line-height: 100%;
+    padding-top: 0.4rem;
+    cursor: pointer;
+}
+
+.slider span:not(.btext) {
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff;
+}
+
+.btext {
+    color: var(--primaryColor);
+    text-shadow: -1px -1px 0 var(--secondaryColor), 1px -1px 0 var(--secondaryColor), -1px 1px 0 var(--secondaryColor), 1px 1px 0 var(--secondaryColor);
+}
+
+.noevent {
+    pointer-events: none;
+}
+
+
+/* CYBER BORDER */
+
+.border {
+    position: relative;
+    width: 100%;
+    height: 5em;
+    border: 0;
+    background-color: var(--secondaryColor);
+    outline: none;
+    color: var(--black-color);
+}
+
+.border .content {
+    position: absolute;
+    overflow-y: hidden;
+    top: var(--bradius-width);
+    left: var(--bradius-width);
+    right: var(--bradius-width);
+    bottom: var(--bradius-width);
+    background-color: var(--primaryColor);
+    padding: 1em 0;
+    color: white;
+}
+
+.border.top-left,
+.border.top-left .content {
+    --bradius-top-left: var(--bradius);
+}
+
+.border.top-right,
+.border.top-right .content {
+    --bradius-top-right: var(--bradius);
+}
+
+.border.bottom-right,
+.border.bottom-right .content {
+    --bradius-bottom-right: var(--bradius);
+}
+
+.border.bottom-left,
+.border.bottom-left .content {
+    --bradius-bottom-left: var(--bradius);
+}
+
+.border,
+.border .content {
+    clip-path: polygon(0% calc(0% + var(--bradius-top-left)), calc(0% + var(--bradius-top-left)) 0%, calc(100% - var(--bradius-top-right)) 0%, 100% calc(0% + var(--bradius-top-right)), 100% calc(100% - var(--bradius-bottom-right)), calc(100% - var(--bradius-bottom-right)) 100%, calc(0% + var(--bradius-bottom-left)) 100%, 0% calc(100% - var(--bradius-bottom-left)));
+}
+
+.glitch {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primaryColor);
+    filter: drop-shadow(-2px 3px #67e3f3) drop-shadow(-1px -3px #02d8f3) drop-shadow(2px 1px #02d8f3);
+    animation: glitch-animation 2s linear 0s infinite;
+}
