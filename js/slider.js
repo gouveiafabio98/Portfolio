@@ -9,7 +9,7 @@ window.onload = function() {
     Array.from(elements).forEach((element, index, array) => {
         element.width = element.clientWidth;
         element.left = 0;
-        console.log(element.width);
+
         if (index > 0) {
             element.left += array[index - 1].width + array[index - 1].left + margin;
         }

@@ -33,6 +33,11 @@ body {
     padding: 5vh;
 }
 
+main {
+    width: 100%;
+    height: 100vh;
+}
+
 
 /* HEADER */
 
@@ -137,4 +142,13 @@ header .content {
     background-color: var(--primaryColor);
     filter: drop-shadow(-2px 3px #67e3f3) drop-shadow(-1px -3px #02d8f3) drop-shadow(2px 1px #02d8f3);
     animation: glitch-animation 2s linear 0s infinite;
+}
+
+
+/* DRAGGABLE */
+
+.drag {
+    touch-action: none;
+    user-select: none;
+    transform: translate(0px, 0px);
 }
