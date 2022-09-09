@@ -133,7 +133,7 @@ Array.from(chart).forEach((collumn) => {
     collumn.bar = collumn.querySelector('.bar');
     collumn.value = collumn.querySelector('.value');
 
-    collumn.txtEffect = new TextScramble(el);
+    collumn.txtEffect = new TextScramble(collumn.value);
 
     chartLoad(collumn);
 });
@@ -141,6 +141,6 @@ Array.from(chart).forEach((collumn) => {
 function chartLoad(e) {
     var nHeight = (Math.random() * 100).toFixed(2);
     e.bar.style.height = nHeight + "%";
-    e.value.innerText = nHeight + "%";
+    e.txtEffect.setText(nHeight + "%");
     setTimeout(chartLoad, 2000, e);
 }
