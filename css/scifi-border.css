@@ -18,7 +18,7 @@
 }
 
 .slider {
-    font-family: "Raptor";
+    font-family: "BarracudaLight";
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -42,6 +42,10 @@
 
 .noevent {
     pointer-events: none;
+}
+
+.slider span:not(.noevent) {
+    cursor: pointer;
 }
 
 
