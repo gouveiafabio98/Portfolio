@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'BarracudaLight';
-    src: url('../fonts/Barracuda-Light.ttf') format('ttf');
+    src: url('../fonts/Barracuda-Light.ttf') format('truetype');
 }
 
 @font-face {
@@ -25,8 +25,7 @@ body {
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     color: var(--secondColor);
-    font-family: 'Barracuda';
-    font-weight: 100;
+    font-family: 'BarracudaLight';
     overflow: hidden;
 }
 
