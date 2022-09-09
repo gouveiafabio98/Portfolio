@@ -10,6 +10,11 @@
 }
 
 @font-face {
+    font-family: 'BarracudaRegular';
+    src: url('../fonts/Barracuda-regular.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Raptor';
     src: url('../fonts/Raptor.woff') format('woff');
 }
@@ -25,7 +30,7 @@ body {
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     color: var(--secondColor);
-    font-family: 'BarracudaLight';
+    font-family: 'BarracudaRegular';
     overflow: hidden;
 }
 
@@ -50,7 +55,6 @@ main {
 
 canvas {
     pointer-events: none;
-    z-index: 1;
     position: absolute;
     top: 0;
     left: 0;

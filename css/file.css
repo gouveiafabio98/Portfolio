@@ -15,14 +15,15 @@
     font-size: 1.5em;
     text-transform: uppercase;
     line-height: 1.5em;
-    height: 10%;
+    height: 2.5em;
     width: fit-content;
     background-color: var(--secondColor);
     color: var(--mainColor);
+    margin-top: 25px;
 }
 
 .window .main {
-    height: 90%;
+    height: -webkit-fill-available;
     border: 1px solid var(--secondColor);
     border-width: 1px 0;
     padding: 0.1em;
@@ -30,7 +31,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-    background-image: radial-gradient(circle, var(--secondColor) 1px, rgba(0, 0, 0, 0) 1px);
 }
 
 .file {
@@ -40,6 +40,7 @@
     height: fit-content;
     padding: 5px;
     user-select: none;
+    cursor: pointer;
 }
 
 .file .icon {
@@ -111,13 +112,66 @@
     text-align: center;
     width: 100%;
     margin-bottom: 5px;
+    line-height: 1em;
+}
+
+#chart .bar-holder {
+    height: calc(100% - 2em - 15px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 #chart .collumn .bar {
     width: 90%;
     height: 0%;
     margin: 0 auto;
-    background-size: 100% 10px;
+    background-size: 100% 8px;
     background-image: linear-gradient(to bottom, var(--secondColor) 1px, transparent 1px);
     transition: height 1.5s;
+}
+
+#chart .description {
+    text-align: center;
+    margin: 10px auto 0 auto;
+    line-height: 1em;
+}
+
+
+/*#title {
+    grid-row: 2;
+    grid-column: 1 / 6;
+    padding: 20px 0;
+}
+
+#title .container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#title svg {
+    fill: var(--secondColor);
+    max-height: 40%;
+}
+
+#title svg:not(:last-child) {
+    padding-right: 100px;
+}*/
+
+#window {
+    position: absolute;
+}
+
+#window .main {
+    background-color: rgba(10, 10, 10, 0.8);
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle, var(--secondColorOpacity) 1px, rgba(0, 0, 0, 0) 1px);
+    border-width: 1px;
+}
+
+#window .title {
+    margin: 0;
 }
