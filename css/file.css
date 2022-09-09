@@ -162,7 +162,7 @@
 }*/
 
 #window {
-    position: absolute;
+    display: contents;
 }
 
 #window .main {
@@ -170,17 +170,19 @@
     background-size: 20px 20px;
     background-image: radial-gradient(circle, var(--secondColorOpacity) 1px, rgba(0, 0, 0, 0) 1px);
     border-width: 1px;
+    overflow: hidden auto;
+}
+
+#window .window {
+    min-width: 20%;
 }
 
 #window .title {
     margin: 0;
 }
 
-#window .main {
-    overflow: hidden auto;
-}
-
 #window .content {
-    font-size: 2em;
+    font-family: 'GeomanistRegular';
+    font-size: 1.25em;
     padding: 20px;
 }

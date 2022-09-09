@@ -12,14 +12,20 @@ interact('.drag')
 
 interact('.drag-parent')
     .draggable({
-        listeners: { move: window.dragMoveListenerParent },
+        listeners: {
+            move: window.dragMoveListenerParent
+        },
         inertia: true,
         modifiers: [
-            interact.modifiers.restrictRect({
-                restriction: 'body',
-                endOnly: true
-            })
-        ]
+                interact.modifiers.restrictRect({
+                    restriction: 'body',
+                    endOnly: true
+                })
+            ]
+            /*,
+                    autoScroll: {
+                        container: this.parentElement
+                    }*/
     })
 
 interact('.drag-resize')
@@ -107,7 +113,8 @@ interact('.resize-parent')
 
             // minimum size
             interact.modifiers.restrictSize({
-                min: { width: 100, height: 50 }
+                min: { width: window.innerWidth * 0.2, height: window.innerHeight * 0.2 },
+                max: { width: window.innerWidth * 0.7, height: window.innerHeight * 0.7 }
             })
         ],
 
@@ -140,4 +147,15 @@ function dragMoveListenerParent(event) {
     // update the posiion attributes
     target.setAttribute('data-x', x)
     target.setAttribute('data-y', y)
+
+    interact(target)
+        .draggable({
+            inertia: true,
+            modifiers: [
+                interact.modifiers.restrictRect({
+                    restriction: 'body',
+                    endOnly: true
+                })
+            ]
+        })
 }

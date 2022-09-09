@@ -5,6 +5,11 @@
 }
 
 @font-face {
+    font-family: 'JetBrains';
+    src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
     font-family: 'BarracudaLight';
     src: url('../fonts/Barracuda-Light.ttf') format('truetype');
 }
@@ -17,6 +22,11 @@
 @font-face {
     font-family: 'Raptor';
     src: url('../fonts/Raptor.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'GeomanistRegular';
+    src: url('../fonts/Geomanist-Regular.woff2') format('woff2');
 }
 
 * {
