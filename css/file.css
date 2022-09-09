@@ -175,3 +175,12 @@
 #window .title {
     margin: 0;
 }
+
+#window .main {
+    overflow: hidden auto;
+}
+
+#window .content {
+    font-size: 2em;
+    padding: 20px;
+}
