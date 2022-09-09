@@ -1,0 +1,93 @@
+#file-system {
+    grid-row: 3 / 5;
+    grid-column: 1 / 6;
+}
+
+.window {
+    display: flex;
+    flex-direction: column;
+}
+
+.window .title {
+    display: flex;
+    align-items: center;
+    padding: 0 0.5em;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    line-height: 1.5em;
+    height: 10%;
+    width: fit-content;
+    background-color: var(--secondColor);
+    color: var(--mainColor);
+}
+
+.window .main {
+    height: 90%;
+    border: 1px solid var(--secondColor);
+    border-width: 1px 0;
+    padding: 0.1em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background-image: radial-gradient(circle, var(--secondColor) 1px, rgba(0, 0, 0, 0) 1px);
+}
+
+.file {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    user-select: none;
+}
+
+.file .icon {
+    pointer-events: none;
+    width: 4em;
+}
+
+.file .name {
+    pointer-events: none;
+    margin-top: 5px;
+    padding: 2px;
+    font-weight: 100;
+    font-family: 'Barracuda';
+    text-align: center;
+    border-radius: 5px;
+}
+
+.file.selected {
+    background-color: rgba(255, 248, 223, 0.2);
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+#clock {
+    font-size: 4em;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#globe {
+    grid-row: 2 / 4;
+    grid-column: 7 / 9;
+    position: relative;
+    padding: 20px 0;
+}
+
+#globe .text {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: lighter;
+}
+
+#header {
+    grid-row: 1;
+    grid-column: 1 / 9;
+    border: 1px solid var(--secondColor);
+    border-width: 1px 0;
+}

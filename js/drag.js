@@ -1,4 +1,16 @@
 interact('.drag')
+    .draggable({
+        listeners: { move: window.dragMoveListener },
+        inertia: true,
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: 'parent',
+                endOnly: true
+            })
+        ]
+    })
+
+interact('.drag-resize')
     .resizable({
         // resize from all edges and corners
         edges: { left: true, right: true, bottom: true, top: true },

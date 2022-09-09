@@ -7,38 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <link rel="stylesheet" type="text/css" href="css/file.css">
+    <link rel="stylesheet" type="text/css" href="css/scifi-border.css">
 
+    <script src="js/three.js"></script>
     <script src="js/interact.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <div class="border top-left bottom-right">
-            <div class="content">
-                <div class="slider">
-                    <span>Fabio's Portfolio</span>
-                    <span class="noevent"> /// </span>
-                    <span class="btext">Projects</span>
-                    <span class="noevent"> /// </span>
-                    <span>ファビオ Portfolio</span>
-                    <span class="noevent"> /// </span>
-                    <span>About</span>
-                    <span class="noevent"> /// </span>
-                    <span>Fabio's Portfolio</span>
-                    <span class="noevent"> /// </span>
+    <main>
+        <div id="header">
+            <div class="slider">
+                <span>Fabio's Portfolio</span>
+                <span class="noevent"> /// </span>
+                <span class="btext">Projects</span>
+                <span class="noevent"> /// </span>
+                <span>ファビオ Portfolio</span>
+                <span class="noevent"> /// </span>
+                <span>About</span>
+                <span class="noevent"> /// </span>
+                <span>Fabio's Portfolio</span>
+                <span class="noevent"> /// </span>
+            </div>
+        </div>
+        <div id="file-system" class="window">
+            <h3 class="title">FileSystem</h3>
+            <div class="main">
+                <div class="file drag">
+                    <img src="img/folder-user.svg" class="icon">
+                    <span class="name">Projects</span>
+                </div>
+                <div class="file drag">
+                    <img src="img/folder-info.svg" class="icon">
+                    <span class="name">About</span>
+                </div>
+                <div class="file drag">
+                    <img src="img/contacts-book.svg" class="icon">
+                    <span class="name">Contact</span>
+                </div>
+                <div class="file drag">
+                    <img src="img/terminal.svg" class="icon">
+                    <span class="name">Terminal</span>
                 </div>
             </div>
-            <div class="glitch"></div>
         </div>
-    </header>
-
-    <main>
-        <div class="border top-left bottom-right drag">
-            <div class="content">
-                <span>This is an academic project within ‘Project 1 - Web Identity ’ unit at the University of Coimbra, where we
-                had to create a visual identity of the event ‘Ciclo de Conversas - Design e Multimédia‘ that takes place in
-                Coimbra, Portugal every year.</span>
-            </div>
+        <div id="globe">
+            <span id="clock">00:00:00</span>
+            <div class="text"></div>
         </div>
     </main>
 
@@ -46,8 +61,11 @@
         <div class="noise"></div>
     </div>
 
-    <script src="js/slider.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/scifi-animation.js"></script>
     <script src="js/drag.js"></script>
+    <script src="js/file.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 
 </html>

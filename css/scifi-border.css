@@ -1,0 +1,115 @@
+:root {
+    --bradius: 1em;
+    --bradius-width: 0.3em;
+    --bradius-top-left: 0em;
+    --bradius-top-right: 0em;
+    --bradius-bottom-right: 0em;
+    --bradius-bottom-left: 0em;
+}
+
+.header {
+    position: absolute;
+}
+
+.header .content {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slider {
+    font-family: "Raptor";
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+}
+
+.slider span {
+    position: absolute;
+    width: max-content;
+    line-height: 100%;
+    padding-top: 0.4rem;
+    cursor: pointer;
+}
+
+.btext {
+    color: var(--mainColor);
+    text-shadow: -1px -1px 0 var(--secondColor), 1px -1px 0 var(--secondColor), -1px 1px 0 var(--secondColor), 1px 1px 0 var(--secondColor);
+}
+
+.noevent {
+    pointer-events: none;
+}
+
+
+/* CYBER BORDER */
+
+.border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: var(--secondColor);
+    outline: none;
+    color: var(--mainColor);
+}
+
+.border .content {
+    position: absolute;
+    overflow-y: hidden;
+    top: var(--bradius-width);
+    left: var(--bradius-width);
+    right: var(--bradius-width);
+    bottom: var(--bradius-width);
+    background-color: var(--mainColor);
+    color: white;
+}
+
+.border.top-left,
+.border.top-left .content {
+    --bradius-top-left: var(--bradius);
+}
+
+.border.top-right,
+.border.top-right .content {
+    --bradius-top-right: var(--bradius);
+}
+
+.border.bottom-right,
+.border.bottom-right .content {
+    --bradius-bottom-right: var(--bradius);
+}
+
+.border.bottom-left,
+.border.bottom-left .content {
+    --bradius-bottom-left: var(--bradius);
+}
+
+.border,
+.border .content {
+    clip-path: polygon(0% calc(0% + var(--bradius-top-left)), calc(0% + var(--bradius-top-left)) 0%, calc(100% - var(--bradius-top-right)) 0%, 100% calc(0% + var(--bradius-top-right)), 100% calc(100% - var(--bradius-bottom-right)), calc(100% - var(--bradius-bottom-right)) 100%, calc(0% + var(--bradius-bottom-left)) 100%, 0% calc(100% - var(--bradius-bottom-left)));
+}
+
+.glitch {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--mainColor);
+    filter: drop-shadow(-2px 3px #67e3f3) drop-shadow(-1px -3px #02d8f3) drop-shadow(2px 1px #02d8f3);
+    animation: glitch-animation 2s linear 0s infinite;
+}
+
+
+/* DRAGGABLE */
+
+.drag {
+    touch-action: none;
+    user-select: none;
+    transform: translate(0px, 0px);
+}

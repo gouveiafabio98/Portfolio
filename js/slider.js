@@ -1,5 +1,5 @@
 var animation = null;
-var container = document.querySelector("header .slider");
+var container = document.querySelector("#header .slider");
 var elements = container.children;
 var margin = parseFloat(window.getComputedStyle(container, null).getPropertyValue('font-size')) * 3;
 

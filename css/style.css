@@ -1,154 +1,53 @@
 :root {
-    --primaryColor: #161616;
-    --secondaryColor: #E0E0E0;
-    --bradius: 1em;
-    --bradius-width: 0.3em;
-    --bradius-top-left: 0em;
-    --bradius-top-right: 0em;
-    --bradius-bottom-right: 0em;
-    --bradius-bottom-left: 0em;
+    --mainColor: #111;
+    --secondColor: #fff8df;
+    --secondColorOpacity: rgba(255, 248, 223, 0.1);
 }
 
 
-/* FONTS */
+/*@font-face {
+    font-family: 'BarracudaLight';
+    src: url('/fonts/Barracuda-Light.ttf') format('ttf');
+}*/
 
-@font-face {
-    font-family: 'JetBrains';
-    src: url('../assets/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+* {
+    margin: 0;
+    padding: 0;
 }
-
-@font-face {
-    font-family: 'Raptor';
-    src: url('../assets/fonts/Raptor.woff') format('woff');
-}
-
-
-/* BODY */
 
 body {
-    background-color: var(--primaryColor);
-    width: calc(100vw - 10vh);
-    height: 90vh;
-    margin: 0;
-    padding: 5vh;
-}
-
-main {
-    width: 100%;
-    height: 100vh;
-}
-
-
-/* HEADER */
-
-header {
-    margin: 0 auto;
-    width: 90%;
-}
-
-header .content {
-    display: flex;
-    align-items: center;
+    position: relative;
+    background-color: var(--secondColor);
+    height: calc(var(--vh, 1vh) * 100);
+    width: 100vw;
+    color: var(--secondColor);
+    font-family: 'Barracuda';
+    font-weight: 100;
     overflow: hidden;
 }
 
-.slider {
-    font-family: "Raptor";
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    font-size: 2em;
-    width: 100%;
-}
-
-.slider span {
+main {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(8, 12.5%);
+    grid-template-rows: 10% 30% 30% 30%;
     position: absolute;
-    width: max-content;
-    line-height: 100%;
-    padding-top: 0.4rem;
-    cursor: pointer;
+    background-color: var(--mainColor);
+    background-repeat: repeat;
+    background-size: 1em 1em;
+    height: calc(100% - 44px);
+    width: calc(100% - 44px);
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    overflow: hidden;
 }
 
-.slider span:not(.btext) {
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff;
-}
-
-.btext {
-    color: var(--primaryColor);
-    text-shadow: -1px -1px 0 var(--secondaryColor), 1px -1px 0 var(--secondaryColor), -1px 1px 0 var(--secondaryColor), 1px 1px 0 var(--secondaryColor);
-}
-
-.noevent {
+canvas {
     pointer-events: none;
-}
-
-
-/* CYBER BORDER */
-
-.border {
-    position: relative;
-    width: 100%;
-    height: 5em;
-    border: 0;
-    background-color: var(--secondaryColor);
-    outline: none;
-    color: var(--black-color);
-}
-
-.border .content {
-    position: absolute;
-    overflow-y: hidden;
-    top: var(--bradius-width);
-    left: var(--bradius-width);
-    right: var(--bradius-width);
-    bottom: var(--bradius-width);
-    background-color: var(--primaryColor);
-    padding: 1em 0;
-    color: white;
-}
-
-.border.top-left,
-.border.top-left .content {
-    --bradius-top-left: var(--bradius);
-}
-
-.border.top-right,
-.border.top-right .content {
-    --bradius-top-right: var(--bradius);
-}
-
-.border.bottom-right,
-.border.bottom-right .content {
-    --bradius-bottom-right: var(--bradius);
-}
-
-.border.bottom-left,
-.border.bottom-left .content {
-    --bradius-bottom-left: var(--bradius);
-}
-
-.border,
-.border .content {
-    clip-path: polygon(0% calc(0% + var(--bradius-top-left)), calc(0% + var(--bradius-top-left)) 0%, calc(100% - var(--bradius-top-right)) 0%, 100% calc(0% + var(--bradius-top-right)), 100% calc(100% - var(--bradius-bottom-right)), calc(100% - var(--bradius-bottom-right)) 100%, calc(0% + var(--bradius-bottom-left)) 100%, 0% calc(100% - var(--bradius-bottom-left)));
-}
-
-.glitch {
-    display: block;
-    position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--primaryColor);
-    filter: drop-shadow(-2px 3px #67e3f3) drop-shadow(-1px -3px #02d8f3) drop-shadow(2px 1px #02d8f3);
-    animation: glitch-animation 2s linear 0s infinite;
-}
-
-
-/* DRAGGABLE */
-
-.drag {
-    touch-action: none;
-    user-select: none;
-    transform: translate(0px, 0px);
 }
