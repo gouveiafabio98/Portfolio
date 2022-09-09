@@ -122,3 +122,25 @@ function pathAnimation(path) {
         }
     }
 }*/
+
+// ——————————————————————————————————————————————————
+// CHART
+// ——————————————————————————————————————————————————
+
+var chart = document.getElementById('chart').children;
+
+Array.from(chart).forEach((collumn) => {
+    collumn.bar = collumn.querySelector('.bar');
+    collumn.value = collumn.querySelector('.value');
+
+    collumn.txtEffect = new TextScramble(el);
+
+    chartLoad(collumn);
+});
+
+function chartLoad(e) {
+    var nHeight = (Math.random() * 100).toFixed(2);
+    e.bar.style.height = nHeight + "%";
+    e.value.innerText = nHeight + "%";
+    setTimeout(chartLoad, 2000, e);
+}
