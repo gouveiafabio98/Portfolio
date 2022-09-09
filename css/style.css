@@ -4,11 +4,15 @@
     --secondColorOpacity: rgba(255, 248, 223, 0.1);
 }
 
-
-/*@font-face {
+@font-face {
     font-family: 'BarracudaLight';
-    src: url('/fonts/Barracuda-Light.ttf') format('ttf');
-}*/
+    src: url('../fonts/Barracuda-Light.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'Raptor';
+    src: url('../fonts/Raptor.woff') format('woff');
+}
 
 * {
     margin: 0;
