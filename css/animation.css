@@ -66,3 +66,18 @@
         transform: translate(5%)
     }
 }
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0%);
+    }
+    90% {
+        transform: translateX(-100%);
+    }
+    95% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

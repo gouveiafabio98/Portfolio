@@ -11,22 +11,73 @@
 .window .title {
     display: flex;
     align-items: center;
-    padding: 0 0.5em;
     font-size: 1.5em;
     text-transform: uppercase;
     line-height: 1.5em;
-    height: 2.5em;
-    width: fit-content;
+    font-weight: bold;
     background-color: var(--secondColor);
     color: var(--mainColor);
     margin-top: 25px;
+    width: fit-content;
+}
+
+.window .title.full {
+    width: auto;
+}
+
+.window .close {
+    background-color: var(--mainColor);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    border: 1px solid var(--secondColor);
+    border-radius: 5px;
+    cursor: pointer!important;
+}
+
+.window .close img {
+    width: 1.5em;
+    margin: 0.5em;
+}
+
+.window .name {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 0.75em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: grab;
+}
+
+.window span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#window .window:not(.display) {
+    display: none;
+}
+
+.window .title.full .name:hover span {
+    text-overflow: clip;
+    animation-name: scroll-text;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    overflow: unset;
 }
 
 .window .main {
     height: -webkit-fill-available;
     border: 1px solid var(--secondColor);
     border-width: 1px 0;
-    padding: 0.1em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -174,7 +225,7 @@
 }
 
 #window .window {
-    min-width: 20%;
+    min-width: 20vw;
 }
 
 #window .title {

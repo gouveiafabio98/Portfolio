@@ -144,3 +144,23 @@ function chartLoad(e) {
     e.txtEffect.setText(nHeight + "%");
     setTimeout(chartLoad, 2000, e);
 }
+
+// ——————————————————————————————————————————————————
+// WINDOWS CLOSE
+// ——————————————————————————————————————————————————
+
+windows = document.getElementById("window").children;
+
+Array.from(windows).forEach((window) => {
+    /* FIX SIZE TITLE */
+    if (window.querySelector('.title .name').clientWidth + 64 >= window.clientWidth) {
+        window.querySelector('.title').classList.add("full");
+    } else {
+        window.querySelector('.title').classList.remove("full");
+    }
+
+    /* CLOSE */
+    window.querySelector(".close").addEventListener("click", function() {
+        window.classList.remove("display");
+    });
+});

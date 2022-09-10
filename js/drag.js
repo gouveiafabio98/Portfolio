@@ -17,16 +17,12 @@ interact('.drag-parent')
         },
         inertia: true,
         modifiers: [
-                interact.modifiers.restrictRect({
-                    restriction: 'body',
-                    endOnly: true
-                })
-            ]
-            /*,
-                    autoScroll: {
-                        container: this.parentElement
-                    }*/
-    })
+            interact.modifiers.restrictRect({
+                restriction: 'body',
+                endOnly: true
+            })
+        ]
+    }).styleCursor(false)
 
 interact('.drag-resize')
     .resizable({
@@ -91,9 +87,15 @@ interact('.resize-parent')
 
                 // update the element's style
                 target.style.width = event.rect.width + 'px'
-                target.style.height = event.rect.height + 62 + 'px'
-                event.target.style.width = event.rect.width + 'px'
+                target.style.height = event.rect.height + target.querySelector('.title').clientHeight + 'px'
+                event.target.style.width = event.rect.width - 2 + 'px'
                 event.target.style.height = event.rect.height + 'px'
+
+                if (target.querySelector('.title .name').clientWidth + 64 >= event.rect.width) {
+                    target.querySelector('.title').classList.add("full");
+                } else {
+                    target.querySelector('.title').classList.remove("full");
+                }
 
                 // translate when resizing from top or left edges
                 x += event.deltaRect.left
@@ -147,15 +149,4 @@ function dragMoveListenerParent(event) {
     // update the posiion attributes
     target.setAttribute('data-x', x)
     target.setAttribute('data-y', y)
-
-    interact(target)
-        .draggable({
-            inertia: true,
-            modifiers: [
-                interact.modifiers.restrictRect({
-                    restriction: 'body',
-                    endOnly: true
-                })
-            ]
-        })
 }
