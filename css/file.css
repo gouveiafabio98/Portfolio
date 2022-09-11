@@ -245,7 +245,7 @@
 }
 
 #window .main {
-    background-color: rgba(10, 10, 10, 0.95);
+    background-color: rgba(10, 10, 10, 0.75);
     background-size: 20px 20px;
     background-image: radial-gradient(circle, var(--secondColorOpacity) 1px, rgba(0, 0, 0, 0) 1px);
     border-width: 1px;
@@ -254,6 +254,7 @@
 
 #window .window {
     min-width: 20vw;
+    filter: drop-shadow(0 0 0.75rem rgba(10, 10, 10, 0.8));
 }
 
 #window .title {

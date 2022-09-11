@@ -17,6 +17,11 @@ document.addEventListener("click", function(e) {
             e.target.classList.add('selected');
             activeFile = e.target;
         }
+    } else {
+        if (activeFile != null) {
+            activeFile.classList.remove('selected');
+            activeFile = null;
+        }
     }
 });
 
