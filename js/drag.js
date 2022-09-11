@@ -8,6 +8,18 @@ interact('.drag')
                 endOnly: true
             })
         ]
+    }).styleCursor(false)
+
+interact('.drag-limit')
+    .draggable({
+        listeners: { move: window.dragMoveListener },
+        inertia: true,
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: 'parent',
+                endOnly: false
+            })
+        ]
     })
 
 interact('.drag-parent')

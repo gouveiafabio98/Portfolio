@@ -3,14 +3,20 @@ var activeFile = null;
 
 
 document.addEventListener("click", function(e) {
-    if (!Array.from(files).includes(e)) {
-        if (activeFile != null && activeFile.classList.contains('selected'))
-            activeFile.classList.remove('selected');
-    }
-
     if (e.target.classList.contains('file')) {
-        e.target.classList.add('selected');
-        activeFile = e.target;
+        if (e.target.classList.contains("selected")) {
+            let newWindow = document.getElementById(e.target.dataset.file);
+            newWindow.classList.add("display");
+            activeWindows.push(newWindow);
+            zWindow();
+        } else {
+            if (!Array.from(files).includes(e)) {
+                if (activeFile != null && activeFile.classList.contains('selected'))
+                    activeFile.classList.remove('selected');
+            }
+            e.target.classList.add('selected');
+            activeFile = e.target;
+        }
     }
 });
 
@@ -149,7 +155,7 @@ function chartLoad(e) {
 // WINDOWS CLOSE
 // ——————————————————————————————————————————————————
 
-windows = document.getElementById("window").children;
+var windows = document.getElementById("window").children;
 
 Array.from(windows).forEach((window) => {
     /* FIX SIZE TITLE */
@@ -161,6 +167,43 @@ Array.from(windows).forEach((window) => {
 
     /* CLOSE */
     window.querySelector(".close").addEventListener("click", function() {
+        let window = this.parentElement.parentElement
         window.classList.remove("display");
+        arrayRemove(activeWindows, window);
+    });
+
+    window.querySelector(".main").addEventListener("click", function() {
+        upWindow(activeWindows.indexOf(this.parentElement));
+    });
+
+    window.querySelector(".title").addEventListener("click", function() {
+        upWindow(activeWindows.indexOf(this.parentElement));
     });
 });
+
+// ——————————————————————————————————————————————————
+// WINDOWS Z-INDEX
+// ——————————————————————————————————————————————————
+
+activeWindows = Array.from(document.querySelectorAll(".window.display"));
+
+zWindow();
+
+function zWindow() {
+    activeWindows.forEach((window, i) => {
+        window.style.zIndex = i;
+    });
+}
+
+function upWindow(index) {
+    activeWindows.push(activeWindows.splice(index, 1)[0]);
+    zWindow();
+}
+
+function arrayRemove(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+    return arr;
+}

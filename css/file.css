@@ -38,7 +38,7 @@
 
 .window .close img {
     width: 1.5em;
-    margin: 0.5em;
+    margin: 0.25em;
 }
 
 .window .name {
@@ -50,6 +50,11 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    min-height: 2em;
+    justify-content: center;
+}
+
+#window .window .name {
     cursor: grab;
 }
 
@@ -61,6 +66,17 @@
 
 #window .window:not(.display) {
     display: none;
+}
+
+#window .window.large {
+    width: 60vw;
+    height: 50vh;
+}
+
+#window .window.medium.hd {
+    width: calc(20vw * 1.920);
+    height: calc(20vw * 1.080 + 130px);
+    max-height: 60vh;
 }
 
 .window .title.full .name:hover span {
@@ -75,13 +91,23 @@
 }
 
 .window .main {
-    height: -webkit-fill-available;
+    height: 100%;
     border: 1px solid var(--secondColor);
     border-width: 1px 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
+}
+
+.file-holder {
+    display: flex;
+    justify-content: row;
+    flex-wrap: wrap;
+}
+
+.file-holder .file {
+    margin-right: 10px;
 }
 
 .file {
@@ -92,11 +118,12 @@
     padding: 5px;
     user-select: none;
     cursor: pointer;
+    align-items: center;
 }
 
 .file .icon {
     pointer-events: none;
-    width: 4em;
+    width: 3vw;
 }
 
 .file .name {
@@ -214,10 +241,11 @@
 
 #window {
     display: contents;
+    z-index: 1;
 }
 
 #window .main {
-    background-color: rgba(10, 10, 10, 0.8);
+    background-color: rgba(10, 10, 10, 0.95);
     background-size: 20px 20px;
     background-image: radial-gradient(circle, var(--secondColorOpacity) 1px, rgba(0, 0, 0, 0) 1px);
     border-width: 1px;
@@ -236,4 +264,6 @@
     font-family: 'GeomanistRegular';
     font-size: 1.25em;
     padding: 20px;
+    line-height: 1.6rem;
+    width: calc(100% - 40px);
 }
