@@ -21,6 +21,10 @@
     width: fit-content;
 }
 
+#window .main img:not(.icon) {
+    width: 100%;
+}
+
 .window .title.full {
     width: auto;
 }
@@ -50,11 +54,14 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    min-height: 2em;
 }
 
 #window .window .name {
     cursor: grab;
+}
+
+#window .window .name:active {
+    cursor: grabbing;
 }
 
 .window span {
@@ -76,6 +83,11 @@
     width: calc(20vw * 1.920);
     height: calc(20vw * 1.080 + 130px);
     max-height: 60vh;
+}
+
+#window .window.small.square {
+    width: 40vh;
+    height: calc(40vh + 3em);
 }
 
 .window .title.full .name:hover span {

@@ -16,6 +16,7 @@
 
 <body>
     <main>
+        <!-- Header -->
         <div id="header">
             <div class="slider">
                 <span>Fabio's Portfolio</span>
@@ -28,6 +29,7 @@
                 <span class="noevent"> /// </span>
             </div>
         </div>
+        <!-- File System -->
         <div id="file-system" class="window">
             <div class="title">
                 <div class="name">
@@ -39,7 +41,7 @@
                     <img src="img/folder-user.svg" class="icon">
                     <span class="name">Projects</span>
                 </div>
-                <div class="file drag">
+                <div class="file drag" data-file="about">
                     <img src="img/folder-info.svg" class="icon">
                     <span class="name">About</span>
                 </div>
@@ -53,10 +55,12 @@
                 </div>
             </div>
         </div>
+        <!-- Globe -->
         <div id="globe">
             <span id="clock">00:00:00</span>
             <div class="text"></div>
         </div>
+        <!-- Chart -->
         <div id="chart">
             <div class="collumn">
                 <div class="bar-holder">
@@ -134,8 +138,26 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Ciclo de Coversas Design + Multimédia -->
+            <!-- About Window -->
+            <div class="window small square" id="about">
+                <div class="title drag-parent">
+                    <div class="close">
+                        <img src="img/close.svg">
+                    </div>
+                    <div class="name">
+                        <span>About</span>
+                    </div>
+                </div>
+                <div class="main resize-parent">
+                    <div class="content">
+                        <p>Hello, my name is Fábio and I'm a graphic designer. I'm currently studying in the University of Coimbra in Portugal at the course of Design and Multimedia. I have proficience with video edition, animations, moving posters, illustration
+                            and programmation.
+                        </p>
+                        <img src="img/photo.png">
+                    </div>
+                </div>
+            </div>
+            <!-- Ciclo de Coversas Design + Multimédia [CCDM] -->
             <div class="window large" id="ccdm">
                 <div class="title drag-parent">
                     <div class="close">
