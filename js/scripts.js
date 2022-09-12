@@ -23,3 +23,7 @@ function checkTime(i) {
     if (i < 10) { i = "0" + i };
     return i;
 }
+
+function refreshIFrame(element) {
+    element.src = element.src;
+}

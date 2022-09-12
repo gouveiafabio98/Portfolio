@@ -4,10 +4,12 @@ var activeFile = null;
 
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains('file')) {
-        if (e.target.classList.contains("selected")) {
+        if (e.target.classList.contains("selected") && e.target.dataset.file != null) {
             let newWindow = document.getElementById(e.target.dataset.file);
+            if (newWindow.classList.contains("iframe")) refreshIFrame(newWindow.querySelector("iframe"));
             newWindow.classList.add("display");
             activeWindows.push(newWindow);
+            checkTitleSize(newWindow);
             zWindow();
         } else {
             if (!Array.from(files).includes(e)) {
@@ -211,4 +213,12 @@ function arrayRemove(arr, value) {
         arr.splice(index, 1);
     }
     return arr;
+}
+
+function checkTitleSize(window) {
+    if (window.querySelector('.title .name').clientWidth + 64 >= window.clientWidth) {
+        window.querySelector('.title').classList.add("full");
+    } else {
+        window.querySelector('.title').classList.remove("full");
+    }
 }
