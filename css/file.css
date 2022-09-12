@@ -283,3 +283,50 @@
     line-height: 1.6rem;
     width: calc(100% - 40px);
 }
+
+.blink {
+    display: none;
+}
+
+input:focus+.blink {
+    display: initial;
+    animation: blink-animation 0.8s steps(5, start) infinite;
+    -webkit-animation: blink-animation 0.8s steps(5, start) infinite;
+    font-weight: bolder;
+}
+
+.window {
+    outline: none;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.hide {
+    width: 0;
+    height: 0;
+    outline: none;
+    border: none;
+}
+
+#terminal .main * {
+    font-family: "Consolas";
+    overflow-wrap: break-word;
+}
+
+#terminal span {
+    white-space: normal;
+}
+
+#terminal p.typed::before {
+    content: "> ";
+}
