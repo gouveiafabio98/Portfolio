@@ -6,11 +6,7 @@ document.addEventListener("click", function(e) {
     if (e.target.classList.contains('file')) {
         if (e.target.classList.contains("selected") && e.target.dataset.file != null) {
             let newWindow = document.getElementById(e.target.dataset.file);
-            if (newWindow.classList.contains("iframe")) refreshIFrame(newWindow.querySelector("iframe"));
-            newWindow.classList.add("display");
-            activeWindows.push(newWindow);
-            checkTitleSize(newWindow);
-            zWindow();
+            openWindow(newWindow);
         } else {
             if (!Array.from(files).includes(e)) {
                 if (activeFile != null && activeFile.classList.contains('selected'))
@@ -180,11 +176,13 @@ Array.from(windows).forEach((window) => {
     });
 
     window.querySelector(".main").addEventListener("click", function() {
-        upWindow(activeWindows.indexOf(this.parentElement));
+        if (this.parentElement.classList.contains("display"))
+            upWindow(activeWindows.indexOf(this.parentElement));
     });
 
     window.querySelector(".title").addEventListener("click", function() {
-        upWindow(activeWindows.indexOf(this.parentElement));
+        if (this.parentElement.classList.contains("display"))
+            upWindow(activeWindows.indexOf(this.parentElement));
     });
 });
 
@@ -197,9 +195,11 @@ activeWindows = Array.from(document.querySelectorAll(".window.display"));
 zWindow();
 
 function zWindow() {
-    activeWindows.forEach((window, i) => {
-        window.style.zIndex = i;
-    });
+    if (activeWindows.length > 0) {
+        activeWindows.forEach((window, i) => {
+            window.style.zIndex = i;
+        });
+    }
 }
 
 function upWindow(index) {
@@ -221,4 +221,18 @@ function checkTitleSize(window) {
     } else {
         window.querySelector('.title').classList.remove("full");
     }
+}
+
+function openWindow(newWindow) {
+    if (newWindow != null) {
+        if (newWindow.classList.contains("iframe")) refreshIFrame(newWindow.querySelector("iframe"));
+        newWindow.classList.add("display");
+        activeWindows.push(newWindow);
+        windowPosition(newWindow);
+        checkTitleSize(newWindow);
+        zWindow();
+
+        return true;
+    }
+    return false;
 }

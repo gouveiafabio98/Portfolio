@@ -28,6 +28,10 @@ function refreshIFrame(element) {
     element.src = element.src;
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    this.getElementById("load").classList.remove("display");
+}, false);
+
 // ——————————————————————————————————————————————————
 // Console
 // ——————————————————————————————————————————————————
@@ -37,6 +41,9 @@ var terminalMain = terminal.querySelector(".main");
 var consoleInput = terminal.querySelector("input");
 var inputText = terminal.querySelector(".inputText")
 var terminalArea = terminal.querySelector(".console");
+
+var projects = [];
+Array.from(document.getElementById("projects").querySelectorAll(".file")).forEach((file) => { projects.push(document.getElementById(file.dataset.file)); });
 
 terminal.addEventListener("click", function() {
     consoleInput.focus();
@@ -48,43 +55,52 @@ consoleInput.addEventListener("input", function() {
 
 consoleInput.addEventListener("keydown", function(event) {
     if (event.keyCode == 13) {
-        var tag = document.createElement("p");
+        var tag = createP(this.value)
         tag.classList.add("typed");
-        var text = document.createTextNode(this.value);
-        tag.appendChild(text);
         terminalArea.appendChild(tag);
 
         consoleEvent(this.value);
 
         inputText.innerHTML = "";
         this.value = "";
-
         terminalMain.scrollTop = terminalMain.scrollHeight;
     }
 });
 
 function consoleEvent(content) {
     content = content.toLowerCase();
+    contentSplit = content.split(" ");
 
-    if (content == "help") {
-        var tag = document.createElement("p");
-
-        var text = document.createTextNode("Available commands:");
-        tag.appendChild(text);
-        terminalArea.appendChild(tag);
-
-        tag = document.createElement("p");
-        text = document.createTextNode("PROJECT $id");
-        tag.appendChild(text);
-        terminalArea.appendChild(tag);
-    } else if (content.startsWith("project ")) {
-        /* --- */
+    if (contentSplit[0] == "help") {
+        terminalArea.appendChild(createP("Available commands:"));
+        terminalArea.appendChild(createP("PROJECT $id"));
+    } else if (contentSplit[0] == "project") {
+        if (!openWindow(projects[parseInt(contentSplit[1])]))
+            terminalArea.appendChild(createP("'" + content + "' does not exists."));
     } else {
-        var tag = document.createElement("p");
-
-        var text = document.createTextNode("'" + content + "' does not exists.");
-        tag.appendChild(text);
-        terminalArea.appendChild(tag);
+        terminalArea.appendChild(createP("'" + contentSplit[0] + "' does not exists."));
     }
-    terminalArea.appendChild(document.createElement("br"));
+}
+
+function createP(text) {
+    var tag = document.createElement("p");
+    var text = document.createTextNode(text);
+    tag.appendChild(text);
+    return tag;
+}
+
+var main = document.querySelector("main");
+
+function windowPosition(target) {
+    if (target.getAttribute("data-x") == null) {
+        var x = parseInt(Math.random() * (main.clientWidth - target.clientWidth));
+        var y = parseInt(Math.random() * (main.clientHeight - target.clientHeight));
+
+        // translate the element
+        target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+        // update the posiion attributes
+        target.setAttribute('data-x', x)
+        target.setAttribute('data-y', y)
+    }
 }
