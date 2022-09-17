@@ -108,7 +108,7 @@
 }
 
 .window .main {
-    height: calc(100% - 25px - 1.5em);
+    height: calc(100% - 36px - 27px);
     border: 1px solid var(--secondColor);
     border-width: 1px 0;
     display: flex;
